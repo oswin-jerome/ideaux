@@ -27,10 +27,10 @@ const NavBar = () => {
         </button>
       </div>
       {/* Mobile screen */}
-      <ul onClick={()=>setIsOpen(false)} className={isOpen?"":"hidden"}>
-          <li><Link href="/" className="px-5 py-2 hover:bg-gray-400 block">Home</Link></li>
-          <li><Link href="/about" className="px-5 py-2 hover:bg-gray-400 block">About us</Link></li>
-          <li><Link href="#" className="px-5 py-2 hover:bg-gray-400 block">Our works</Link></li>
+      <ul onClick={()=>setIsOpen(false)} className={(isOpen?"":"hidden")+"md:hidden"}>
+          <li><Link href="/" ><span className="px-5 py-2 hover:bg-gray-400 block">Home</span></Link></li>
+          <li><Link href="/about" ><span className="px-5 py-2 hover:bg-gray-400 block">About us</span></Link></li>
+          <li><Link href="#" ><span className="px-5 py-2 hover:bg-gray-400 block">Our works</span></Link></li>
       </ul>
     </nav>
   );
