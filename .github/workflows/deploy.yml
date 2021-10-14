@@ -1,0 +1,29 @@
+name: Deploy Action
+on: 
+  push: 
+    branches:
+      - master
+jobs: 
+  deploy-to-server:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Getting Latest code
+      uses: actions/checkout@v2
+    - name: 🎀 Setting up environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: 💣 Installing dependencies
+      run: npm install
+    - name: 🔨 Building Project
+      run: npm run build
+    - name: 📩 Exporting Static site
+      run: npm run export
+    - name: 📂 Sync files to server
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ideaux.in
+        username: ${{ secrets.FTP_USER }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ./public_html/
+        local-dir: ./out/
