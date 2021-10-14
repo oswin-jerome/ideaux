@@ -27,7 +27,7 @@ const NavBar = () => {
         </button>
       </div>
       {/* Mobile screen */}
-      <ul onClick={()=>setIsOpen(false)} className={(isOpen?"":"hidden")+"md:hidden"}>
+      <ul onClick={()=>setIsOpen(false)} className={(isOpen?"":"hidden")+" md:hidden"}>
           <li><Link href="/" ><span className="px-5 py-2 hover:bg-gray-400 block">Home</span></Link></li>
           <li><Link href="/about" ><span className="px-5 py-2 hover:bg-gray-400 block">About us</span></Link></li>
           <li><Link href="#" ><span className="px-5 py-2 hover:bg-gray-400 block">Our works</span></Link></li>
